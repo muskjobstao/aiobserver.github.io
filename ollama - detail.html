@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI观察者网 - 探索人工智能工具与资源">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>AI观察者 - 众多热门AI工具集合</title>
+    <style>
+        :root {
+            --item-width: 1450px;
+            --item-height: 700px;
+            --border-radius: 15px;
+            --gap: 30px;
+            --fade-in-duration: 1s;
+            --nav-height: 60px;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 视频背景样式 */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: -1;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            box-sizing: border-box;
+            z-index: 3;
+            margin-top: 30px;
+        }
+
+        nav .logo {
+            background-image: url('images/AI观察者.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            /* 修改尺寸和外边距 */
+            height: 150px;
+            width: 150px;
+            display: inline-block;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            font-size: 20px;
+            margin-top: 0;
+            margin-left: 30px;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #10d874;
+        }
+
+       .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--gap);
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1;
+            opacity: 0;
+            margin-top: var(--nav-height);
+            animation: fadeIn var(--fade-in-duration) ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+       .article-item {
+            position: relative;
+            width: var(--item-width);
+            height: var(--item-height);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 35px;
+            box-sizing: border-box;
+        }
+
+       .article-item h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+       .article-content {
+            height: calc(var(--item-height) - 156px); /* 减去标题高度和边距 */
+            overflow-y: auto;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+
+       .article-content::-webkit-scrollbar {
+            display: none; /* Safari 和 Chrome */
+        }
+
+       .article-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 2;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 视频背景 -->
+    <video autoplay muted loop>
+        <source src="background.mkv" type="video/mp4">
+        您的浏览器不支持视频播放。
+    </video>
+    <!-- 导航栏 -->
+    <nav>
+        <a href="index.html"><span class="logo"></span></a>
+        <ul>
+            <li><a href="#"><i class="fa-regular fa-eye" style="margin-right: 5px;font-size: 15px;text-align: center;"></i> Python</a></li>
+            <li><a href="#"><i class="fa-solid fa-hammer" style="margin-right: 5px;font-size: 15px;text-align: center;"></i> Java</a></li>
+            <li><a href="#"><i class="fa-solid fa-images" style="margin-right: 5px; font-size: 15px;text-align: center;"></i> Vue</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <!-- 文章详情模块 -->
+        <div class="article-item">
+            <h1>Ollama 是一个开源的大型语言模型服务工具</h1>
+            <div class="article-content">
+                <p>核心特点</p>
+                    <p>1、本地部署：用户可在自己的设备上运行模型，无需依赖云端服务，能更好地保护数据隐私，比如企业处理敏感文档或个人有隐私需求时，可避免数据传输到外部服务器的风险。
+                        多操作系统支持：支持 Mac、Linux 和 Windows 操作系统，方便不同系统的用户安装使用。</p>
+                    <p>2、多模型支持：支持 Llama、Falcon、Qwen2、Llama3、Phi3、Gemma2 等多种流行的 LLM 模型，用户可根据自身需求一键切换运行不同模型。</p>
+                    <p>3、易于使用：提供了直观的命令行界面，操作简单，上手容易，通过简单的命令即可完成模型的下载、运行等操作。</p>
+                    <p>4、可扩展性：支持自定义配置，用户能根据自己的硬件环境和模型需求进行优化，还可通过安装插件增加新功能，满足定制需求。</p>
+                    <p>5、API 支持：提供简洁的 API，开发者能够轻松创建、运行和管理大型语言模型实例，便于将 LLM 功能集成到自己的应用程序中。</p>
+                    <p>6、预构建模型库：包含一系列预先训练好的大型语言模型，用户可直接选用这些模型应用于自己的程序，无需从头训练或自行寻找模型源。
+                        模型导入与定制：支持从特定平台导入已有的大型语言模型，并兼容 PyTorch 或 Safetensors 深度学习框架，允许用户将基于这些框架训练的模型集成到 Ollama 中。
+                    
+                    <p>应用场景</p>
+                    <p>1、开发和测试：开发人员可以使用 Ollama 在本地快速搭建语言模型环境，用于开发新的语言相关的应用程序，如智能客服机器人等，在本地进行初步测试和优化后再部署到生产环境。</p>
+                    <p>2、个人学习和研究：对于研究自然语言处理的学者或者对语言模型感兴趣的个人来说，Ollama 提供了一个方便的实验平台。可以在本地加载不同的模型，对比它们的性能，研究模型的输出特性等。</p>
+                    <p>3、文本生成：可用于生成各种文本内容，例如新闻文章、博客文章、诗歌、代码等。</p>
+                    <p>4、翻译：能够将文本从一种语言翻译成另一种语言。</p>
+                    <p>5、问答：可以用于回答用户提出的各种问题</p>
+
+                    <p>背景与发展</p>
+                    <p>Ollama 诞生于大语言模型蓬勃发展的时代，随着开源模型如 Llama 等的发布，人们对于能够在本地方便运行这些模型的需求日益增长。Ollama 正是为满足这一需求而开发的工具，它使得开发者和普通用户无需强大的云计算资源，就能在本地设备上体验和使用大型语言模型。随着版本的不断迭代，它支持的模型种类逐渐增多，功能也不断完善，在开源社区中受到了广泛关注。</p>
+                    <p>详细安装与使用步骤</p>
+                    <p>安装</p>
+                    <p>Mac 系统：可以使用 Homebrew 进行安装，在终端中运行以下命令：</p>
+                    <p>bash命令：brew install ollama</p>
+                    <p>Linux 系统：可以通过以下命令下载并安装：</p>
+                    <p>bash命令：curl https://ollama.com/install.sh | sh</p>
+                    <p>Windows 系统：从 Ollama 的官方 GitHub 仓库（https://github.com/jmorganca/ollama）下载 Windows 版本的安装程序，然后按照安装向导进行安装。</p>
+                    <p>使用</p>
+                    <p>下载模型：使用 ollama pull 命令下载所需的模型，例如下载 Llama2 模型：</p>
+                    <p>cmd命令：ollama pull llama2</p>
+                    <p>运行模型：使用 ollama run 命令运行模型并与它交互，例如运行 Llama2 模型：</p>
+                    <p>cmd命令：ollama run llama2</p>
+                    <p>之后你可以在终端中输入问题，模型会给出相应的回答。</p>
+                    <p>使用 API：Ollama 提供了 RESTful API。启动 Ollama 服务后，可以使用 curl 等工具调用 API。例如，向 Llama2 模型发送请求：</p>
+                    <p>curl http://localhost:11434/api/generate -d '{
+                        "model": "llama2",
+                        "prompt": "你好"
+                    }'</p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 AI观察者网 版权所有</p>
+    </footer>
+</body>
+
+</html>

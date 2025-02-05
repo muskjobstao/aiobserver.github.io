@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI观察者网 - 探索人工智能工具与资源">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>AI观察者 - 众多热门AI工具集合</title>
+    <style>
+        :root {
+            --item-width: 150px;
+            --item-height: 150px;
+            --border-radius: 15px;
+            --gap: 20px;
+            --fade-in-duration: 1s;
+            --nav-height: 60px;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: -1;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
+            box-sizing: border-box;
+            z-index: 3;
+
+        }
+
+        nav .logo {
+
+            background-image: url('images/AI观察者.png');
+            background-size: cover;
+            height: 150px;
+            width: 150px;
+            margin-top: 60px;
+            margin-left: 60px;
+
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+
+        }
+
+        nav ul li {
+
+            font-size: 20px;
+            margin-top: 40px;
+            margin-left: 30px;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #10d874;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1;
+            opacity: 0;
+            margin-top: var(--nav-height);
+            animation: fadeIn var(--fade-in-duration) ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: var(--gap);
+            flex-wrap: wrap;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: var(--item-width);
+            height: var(--item-height);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: var(--border-radius);
+        }
+
+        .item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+
+            padding: 10px 0;
+            text-align: center;
+            z-index: 2;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <a href="index.html"><div class="logo"></div></a>
+        <ul>
+            <li><a href="youtube.html">观察者 - Youtuber</a></li>
+            <li><a href="#">NEXT</a></li>
+            
+        </ul>
+    </nav>
+    <div class="container">
+        <!-- 第一行 -->
+        <div class="row">
+            <div class="item">
+                <a href="https://www.youtube.com/@lawrence_raw" target="_blank" tabindex="0" aria-label="访问佐糖">
+                    <img src="images/youtube/@lawrence_raw.png" alt="佐糖 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@SeattleLaohu" target="_blank" tabindex="0" aria-label="访问幕布">
+                    <img src="images/youtube/@SeattleLaohu.png" alt="幕布 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@fotogeeker" target="_blank" tabindex="0" aria-label="访问语雀">
+                    <img src="images/youtube/@fotogeeker.png" alt="语雀 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@ElenaLin" target="_blank" tabindex="0" aria-label="访问 DeepSeek">
+                    <img src="images/youtube/@ElenaLin.png" alt="DeepSeek AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@yugeyuxiaotang" target="_blank" tabindex="0" aria-label="访问文心一言">
+                    <img src="images/youtube/@yugeyuxiaotang.png" alt="文心一言 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@EarthInn" target="_blank" tabindex="0" aria-label="访问可画">
+                    <img src="images/youtube/@EarthInn.png" alt="可画 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@codegenweb" target="_blank" tabindex="0" aria-label="访问通义万相">
+                    <img src="images/youtube/@codegenweb.png" alt="通义万相 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@PanScitw" target="_blank" tabindex="0" aria-label="访问紫东太初">
+                    <img src="images/youtube/@PanScitw.png" alt="紫东太初 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+        </div>
+
+        <!-- 第二行 -->
+        <div class="row">
+            <div class="item">
+                <a href="https://www.youtube.com/@%E7%A1%AC%E4%BB%B6%E8%8C%B6%E8%B0%88" target="_blank" tabindex="0" aria-label="访问文心">
+                    <img src="images/youtube/@硬件茶谈.png" alt="文心 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@laogao" target="_blank" tabindex="0" aria-label="访问即梦">
+                    <img src="images/youtube/@laogao.png" alt="即梦 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@malianjie" target="_blank" tabindex="0" aria-label="访问混元元宝">
+                    <img src="images/youtube/@malianjie.png" alt="混元元宝 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@GrowWithDami/" target="_blank" tabindex="0" aria-label="访问海螺AI">
+                    <img src="images/youtube/@GrowWithDami.png" alt="海螺AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@xnzxnz" target="_blank" tabindex="0" aria-label="访问跃问">
+                    <img src="images/youtube/@xnzxnz.png" alt="跃问 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@NDWTB" target="_blank" tabindex="0" aria-label="访问 Kimi">
+                    <img src="images/youtube/@NDWTB.png" alt="Kimi AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@dianxixiaoge" target="_blank" tabindex="0" aria-label="访问天工AI">
+                    <img src="images/youtube/@dianxixiaoge.png" alt="天工AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@cnliziqi" target="_blank" tabindex="0" aria-label="访问百川智能">
+                    <img src="images/youtube/@cnliziqi.png" alt="百川智能 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+        </div>
+
+        <!-- 第三行 -->
+        <div class="row">
+            <div class="item">
+                <a href="https://www.youtube.com/@linksphotograph" target="_blank" tabindex="0" aria-label="访问可灵AI">
+                    <img src="images/youtube/@linksphotograph.png" alt="可灵AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@mediastorm6801" target="_blank" tabindex="0" aria-label="访问千问">
+                    <img src="images/youtube/@mediastorm6801.png" alt="千问 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@tobalog_toba" target="_blank" tabindex="0" aria-label="访问豆包">
+                    <img src="images/youtube/@tobalog_toba.png" alt="豆包 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@devaslife" target="_blank" tabindex="0" aria-label="访问零一万物">
+                    <img src="images/youtube/@devaslife.png" alt="零一万物 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@_TianTianxiangjianchufang" target="_blank" tabindex="0" aria-label="访问智普清言">
+                    <img src="images/youtube/@NicolasYoung.png" alt="智普清言 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.midjourney.com/" target="_blank" tabindex="0" aria-label="访问 Midjourney">
+                    <img src="images/youtube/@_TianTianxiangjianchufang.png" alt="Midjourney AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@STBoss" target="_blank" tabindex="0" aria-label="访问 Notion">
+                    <img src="images/youtube/@STBoss.png" alt="Notion AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/@primitivejunglelifeskills99" target="_blank" tabindex="0" aria-label="访问 Ollama">
+                    <img src="images/youtube/@primitivejunglelifeskills99.png" alt="Ollama AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 AI观察者网 版权所有</p>
+    </footer>
+</body>
+
+</html>

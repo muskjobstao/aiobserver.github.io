@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI观察者网 - 探索人工智能工具与资源">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>AI观察者 - 众多热门AI工具集合</title>
+    <style>
+        :root {
+            --item-width: 300px;
+            --item-height: 350px;
+            --border-radius: 15px;
+            --gap: 100px;
+            --fade-in-duration: 1s;
+            --nav-height: 60px;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 视频背景样式 */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: -1;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            box-sizing: border-box;
+            z-index: 3;
+            margin-top: 30px;
+        }
+
+        nav .logo {
+            background-image: url('images/AI观察者.png');
+            /* 修改尺寸和外边距 */
+            height: 150px;
+            width: 150px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            font-size: 20px;
+            margin-top: 0;
+            margin-left: 30px;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #10d874;
+        }
+
+       .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--gap);
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1;
+            opacity: 0;
+            margin-top: var(--nav-height);
+            animation: fadeIn var(--fade-in-duration) ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+       .item {
+            position: relative;
+            width: var(--item-width);
+            height: var(--item-height);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+       .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+       .item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.7);
+            transition: filter 0.3s ease;
+        }
+
+       .item:hover img {
+            filter: brightness(1);
+        }
+
+       .item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+       .item:hover .overlay {
+            opacity: 1;
+        }
+
+       .item h2 {
+            margin: 0 0 10px;
+            font-size: 24px;
+        }
+
+       .item p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+       .item a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 2;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 视频背景 -->
+    <video autoplay muted loop>
+        <source src="background.mkv" type="video/mp4">
+        您的浏览器不支持视频播放。
+    </video>
+    <!-- 导航栏 -->
+    <nav>
+        <a href="index.html"><div class="logo"></div></a>
+        <ul>
+            <li><a href="#"><i class="fa-regular fa-eye" style="margin-right: 5px;font-size: 15px;text-align: center;"></i> Python</a></li>
+            <li><a href="#"><i class="fa-solid fa-hammer" style="margin-right: 5px;font-size: 15px;text-align: center;"></i> Java</a></li>
+            <li><a href="#"><i class="fa-solid fa-images" style="margin-right: 5px; font-size: 15px;text-align: center;"></i> Vue</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <!-- 示例图文项 -->
+        <div class="item">
+            <img src="images/ollama.png" alt="示例图片1">
+            <div class="overlay">
+                <h2>ollama</h2>
+                <p>Ollama 是一个开源的大型语言模型服务工具，一般用来搭建本地大模型。如DeepSeek本地模型，可以用它来搭建。</p>
+            </div>
+            <a href="ollama - detail.html"></a>
+        </div>
+        <div class="item">
+            <img src="images/openai.png" alt="示例图片2">
+            <div class="overlay">
+                <h2>AI工具 2</h2>
+                <p>此工具在特定领域有着卓越的表现，能为你带来高效的解决方案。</p>
+            </div>
+            <a href="#" target="_blank"></a>
+        </div>
+        <div class="item">
+            <img src="images/kimi - 白.png" alt="示例图片3">
+            <div class="overlay">
+                <h2>AI工具 3</h2>
+                <p>拥有先进的算法和技术，是你在AI探索中的得力助手。</p>
+            </div>
+            <a href="#" target="_blank"></a>
+        </div>
+        <!-- 你可以根据需要添加更多的图文项 -->
+    </div>
+    <footer>
+        <p>&copy; 2025 AI观察者网 版权所有</p>
+    </footer>
+</body>
+
+</html>
