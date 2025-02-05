@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI观察者网 - 探索人工智能工具与资源">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="baidu-site-verification" content="codeva-JnXOss30re" />
+    <title>AI观察者 - 科技革命指路人</title>
+    <style>
+        :root {
+            --item-width: 150px;
+            --item-height: 150px;
+            --border-radius: 15px;
+            --gap: 20px;
+            --fade-in-duration: 1s;
+            --nav-height: 60px;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: -1;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
+            box-sizing: border-box;
+            z-index: 3;
+
+        }
+
+        nav .logo {
+
+            background-image: url('images/AI观察者.png');
+            background-size: cover;
+            height: 150px;
+            width: 150px;
+            margin-top: 60px;
+            margin-left: 60px;
+
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 5px;
+        }
+
+        nav ul li {
+
+            font-size: 20px;
+            margin-top: 40px;
+            margin-left: 60px;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #10d874;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1;
+            opacity: 0;
+            margin-top: var(--nav-height);
+            animation: fadeIn var(--fade-in-duration) ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: var(--gap);
+            flex-wrap: wrap;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: var(--item-width);
+            height: var(--item-height);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: var(--border-radius);
+        }
+
+        .item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+
+            padding: 10px 0;
+            text-align: center;
+            z-index: 2;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="logo"></div>
+        <ul>
+            <li><a href="#"><i class="fa-regular fa-eye" style="margin-right: 5px;font-size: 15px;text-align: center;"></i> AI工具</a></li>
+            <li><a href="#"><i class="fa-solid fa-hammer" style="margin-right: 5px;font-size: 15px;text-align: center;"></i> 编程工具</a></li>
+            <li><a href="#"><i class="fa-solid fa-images" style="margin-right: 5px; font-size: 15px;text-align: center;"></i> 效率工具</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <!-- 第一行 -->
+        <div class="row">
+            <div class="item">
+                <a href="https://www.deepseek.com/" target="_blank" tabindex="0" aria-label="访问 DeepSeek">
+                    <img src="images/deepseek.png" alt="DeepSeek AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://yiyan.baidu.com/" target="_blank" tabindex="0" aria-label="访问 文心一言">
+                    <img src="images/wenxinyiyan.png" alt="文心一言 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://tongyi.aliyun.com/wanxiang/" target="_blank" tabindex="0" aria-label="访问 通义万相">
+                    <img src="images/tongyiwanxiang.png" alt="通义万相 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.tiangong.cn/" target="_blank" tabindex="0" aria-label="访问 天工">
+                    <img src="images/tiangong.png" alt="天工 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://hailuoai.com/" target="_blank" tabindex="0" aria-label="访问 海螺">
+                    <img src="images/hailuo.png" alt="海螺 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://ying.baichuan-ai.com/chat?from=home" target="_blank" tabindex="0" aria-label="访问 百川智能">
+                    <img src="images/baichuan.png" alt="百川智能 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://siliconflow.cn/zh-cn/models" target="_blank" tabindex="0" aria-label="访问 硅基流动">
+                    <img src="images/guijiliudong.png" alt="硅基流动 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://xinghuo.xfyun.cn/desk" target="_blank" tabindex="0" aria-label="访问 讯飞星火">
+                    <img src="images/xunfei.png" alt="讯飞星火 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+        </div>
+
+        
+
+        <!-- 第三行 -->
+        <div class="row">
+            <div class="item">
+                <a href="https://klingai.kuaishou.com/" target="_blank" tabindex="0" aria-label="访问可灵AI">
+                    <img src="images/keling.png" alt="可灵AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://yuewen.cn/" target="_blank" tabindex="0" aria-label="访问跃问">
+                    <img src="images/yuewen.png" alt="跃问 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.doubao.com/" target="_blank" tabindex="0" aria-label="访问 豆包">
+                    <img src="images/doubao.png" alt="豆包 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://jimeng.jianying.com/ai-tool/home" target="_blank" tabindex="0" aria-label="访问 即梦">
+                    <img src="images/jimeng.png" alt="即梦 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://chatglm.cn/" target="_blank" tabindex="0" aria-label="访问 千问">
+                    <img src="images/qianwen.png" alt="千问 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://yige.baidu.com/" target="_blank" tabindex="0" aria-label="访问 文心一格">
+                    <img src="images/wenxinyige.png" alt="文心一格 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://taichu-web.ia.ac.cn/#/chat" target="_blank" tabindex="0" aria-label="访问 紫东太初">
+                    <img src="images/zidong.png" alt="紫东太初 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://yuanbao.tencent.com/" target="_blank" tabindex="0" aria-label="访问 混元元宝">
+                    <img src="images/tengxunyunbao.png" alt="混元元宝 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+        </div>
+
+        <!-- 第二行 -->
+        <div class="row">
+            <div class="item">
+                <a href="https://platform.lingyiwanwu.com/chat" target="_blank" tabindex="0" aria-label="访问 零一万物">
+                    <img src="images/yi.png" alt="零一万物 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://chatglm.cn/" target="_blank" tabindex="0" aria-label="访问 智谱">
+                    <img src="images/zhipu.png" alt="智谱 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://ollama.com/" target="_blank" tabindex="0" aria-label="访问 ollama">
+                    <img src="images/ollama.png" alt="ollama AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.notion.com/zh-cn" target="_blank" tabindex="0" aria-label="访问 notion">
+                    <img src="images/notion.png" alt="notion AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://www.notion.com/zh-cn" target="_blank" tabindex="0" aria-label="访问 openai">
+                    <img src="images/openai.png" alt="openai AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://picwish.cn/" target="_blank" tabindex="0" aria-label="访问 佐糖">
+                    <img src="images/zuotang.png" alt="佐糖 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://mubu.com/" target="_blank" tabindex="0" aria-label="访问 幕布">
+                    <img src="images/mubu.png" alt="幕布 AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://kimi.moonshot.cn/" target="_blank" tabindex="0" aria-label="访问 KIMI">
+                    <img src="images/kimi.png" alt="KIMI AI 工具" loading="lazy" role="img">
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 AI观察者网 版权所有</p>
+    </footer>
+</body>
+
+</html>
