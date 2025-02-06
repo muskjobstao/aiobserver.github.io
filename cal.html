@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI观察者网 - 探索人工智能工具与资源">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>AI观察者 - 科技革命指路人</title>
+    <style>
+        :root {
+            --item-width: 150px;
+            --item-height: 150px;
+            --border-radius: 15px;
+            --gap: 20px;
+            --fade-in-duration: 1s;
+            --nav-height: 60px;
+            --container-top-margin: 6vh;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: auto;
+        }
+
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        body::before {
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+        }
+
+        body::after {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
+            box-sizing: border-box;
+            z-index: 3;
+        }
+
+        .logo {
+            background-image: url('images/AI观察者.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 150px;
+            width: 150px;
+            display: block;
+            margin-top: 60px;
+        }
+
+        nav .logo {
+            background-image: url('images/AI观察者.png');
+            background-size: cover;
+            height: 150px;
+            width: 150px;
+            margin-top: 60px;
+            margin-left: 60px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 5px;
+        }
+
+        nav ul li {
+            font-size: 20px;
+            margin-top: 40px;
+            margin-left: 60px;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #10d874;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1;
+            opacity: 0;
+            margin-top: var(--container-top-margin);
+            animation: fadeIn var(--fade-in-duration) ease-in-out forwards;
+            will-change: opacity;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 2;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        /* 万年历样式 */
+        #calendar {
+            width: 1200px;
+            height: 700px;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #calendar th,
+        #calendar td {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            padding: 10px;
+        }
+
+        #calendar th {
+            background-color: rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+        }
+
+        #calendar #controls td {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+
+        #calendar #controls select,
+        #calendar #controls button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(12, 1, 1, 0.1);
+            color: #c4bebe;
+            font-size: 46px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            /* 去掉默认的下拉箭头 */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        #calendar #controls select:hover,
+        #calendar #controls button:hover {
+            background-color: rgb(119, 115, 115);
+        }
+
+        /* 高亮显示今天的样式 */
+        #calendar td.today {
+            background-color: rgba(255, 255, 0, 0.3);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* 设置当前时间的样式 */
+        #current-time {
+            font-family: 'Cambria, Cochin, Georgia, Times, Times New Roman, serif';
+            font-size: 44px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                height: 30px;
+                width: 90px;
+            }
+
+            nav ul li {
+                font-size: 16px;
+                margin-top: 0;
+                margin-left: 10px;
+            }
+
+            .item {
+                width: calc(50% - var(--gap));
+                height: var(--item-height);
+            }
+
+            .container {
+                padding-top: calc(var(--nav-height) + 20px);
+            }
+
+            #calendar {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                height: 25px;
+                width: 80px;
+            }
+
+            nav ul li {
+                font-size: 14px;
+                margin-top: 0;
+                margin-left: 5px;
+            }
+
+            .item {
+                width: calc(100% - var(--gap));
+                height: var(--item-height);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html"><div class="logo"></div></a>
+        <ul>
+            <li><a href="#"><i class="fa-regular fa-eye"></i> AI</a></li>
+            <li><a href="#"><i class="fa-solid fa-hammer"></i> 编程</a></li>
+            <li><a href="#"><i class="fa-solid fa-images"></i> 效率</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <table id="calendar">
+                <tr id="controls">
+                    <td colspan="7">
+                        <select id="year-select"></select>
+                        <select id="month-select"></select>
+                        <select id="day-select"></select>
+                        <button onclick="updateCalendar()">SWITCH</button>
+                        <button onclick="goToToday()">TODAY</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" id="current-time"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 AI观察者网 版权所有</p>
+    </footer>
+    <script>
+        // 定义重要节日
+        const holidays = {
+            1: {
+                1: '元旦',
+            },
+            2: {},
+            3: {
+                8: '妇女节',
+                12: '植树节',
+            },
+            4: {
+                5: '清明节',
+            },
+            5: {
+                1: '劳动节',
+            },
+            6: {
+                1: '儿童节',
+            },
+            7: {
+                1: '建党节',
+            },
+            8: {
+                1: '建军节',
+            },
+            9: {
+                10: '教师节',
+            },
+            10: {
+                1: '国庆节',
+            },
+            11: {},
+            12: {
+                25: '圣诞节',
+            },
+        };
+
+        function generateCalendar(year, month, day = null) {
+            const calendar = document.getElementById('calendar');
+            // 清空原有的日历内容（除了控制行）
+            const rows = calendar.rows;
+            for (let i = calendar.rows.length - 1; i > 1; i--) {
+                calendar.deleteRow(i);
+            }
+
+            // 创建表头
+            const thead = document.createElement('tr');
+            const days = ['日', '一', '二', '三', '四', '五', '六'];
+            days.forEach(day => {
+                const th = document.createElement('th');
+                th.textContent = day;
+                thead.appendChild(th);
+            });
+            calendar.appendChild(thead);
+
+            // 获取今天的日期
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
+            const currentMonth = currentDate.getMonth();
+            const currentDay = currentDate.getDate();
+
+            // 创建表格主体
+            const firstDay = new Date(year, month, 1);
+            const startingDay = firstDay.getDay();
+            const monthLength = new Date(year, month + 1, 0).getDate();
+
+            let dayNumber = 1;
+            for (let i = 0; i < 6; i++) {
+                const row = document.createElement('tr');
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+                    if (i === 0 && j < startingDay) {
+                        cell.textContent = '';
+                    } else if (dayNumber > monthLength) {
+                        cell.textContent = '';
+                    } else {
+                        const holiday = holidays[month + 1] && holidays[month + 1][dayNumber];
+                        if (holiday) {
+                            cell.innerHTML = `${dayNumber}<br><small>${holiday}</small>`;
+                        } else {
+                            cell.textContent = dayNumber;
+                        }
+                        // 判断是否为今天并添加高亮样式
+                        if (year === currentYear && month === currentMonth && dayNumber === currentDay) {
+                            cell.classList.add('today');
+                        }
+                        if (day!== null && dayNumber === day) {
+                            cell.style.backgroundColor = 'rgba(0, 255, 0, 0.3)';
+                        }
+                        dayNumber++;
+                    }
+                    row.appendChild(cell);
+                }
+                calendar.appendChild(row);
+            }
+        }
+
+        function populateYearAndMonthSelects() {
+            const yearSelect = document.getElementById('year-select');
+            const monthSelect = document.getElementById('month-select');
+            const daySelect = document.getElementById('day-select');
+
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
+            const currentMonth = currentDate.getMonth();
+            const currentDay = currentDate.getDate();
+
+            // 年份跨度从 1900 年到 2300 年
+            for (let year = 1900; year <= 2300; year++) {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year + '年';
+                if (year === currentYear) {
+                    option.selected = true;
+                }
+                yearSelect.appendChild(option);
+            }
+
+            for (let month = 0; month < 12; month++) {
+                const option = document.createElement('option');
+                option.value = month;
+                option.textContent = `${month + 1}月`;
+                if (month === currentMonth) {
+                    option.selected = true;
+                }
+                monthSelect.appendChild(option);
+            }
+
+            updateDaySelect(currentYear, currentMonth, currentDay);
+        }
+
+        function updateDaySelect(year, month, selectedDay = null) {
+            const daySelect = document.getElementById('day-select');
+            daySelect.innerHTML = '';
+
+            const monthLength = new Date(year, month + 1, 0).getDate();
+            for (let day = 1; day <= monthLength; day++) {
+                const option = document.createElement('option');
+                option.value = day;
+                option.textContent = day + '日';
+                if (day === selectedDay) {
+                    option.selected = true;
+                }
+                daySelect.appendChild(option);
+            }
+        }
+
+        function updateCalendar() {
+            const yearSelect = document.getElementById('year-select');
+            const monthSelect = document.getElementById('month-select');
+            const daySelect = document.getElementById('day-select');
+            const year = parseInt(yearSelect.value);
+            const month = parseInt(monthSelect.value);
+            const day = parseInt(daySelect.value);
+
+            updateDaySelect(year, month, day);
+            generateCalendar(year, month, day);
+        }
+
+        function goToToday() {
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
+            const currentMonth = currentDate.getMonth();
+            const currentDay = currentDate.getDate();
+
+            const yearSelect = document.getElementById('year-select');
+            const monthSelect = document.getElementById('month-select');
+            const daySelect = document.getElementById('day-select');
+            yearSelect.value = currentYear;
+            monthSelect.value = currentMonth;
+            updateDaySelect(currentYear, currentMonth, currentDay);
+
+            generateCalendar(currentYear, currentMonth, currentDay);
+        }
+
+        function updateCurrentTime() {
+            const currentTimeElement = document.getElementById('current-time');
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            currentTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // 初始化
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth();
+        const currentDay = currentDate.getDate();
+        generateCalendar(currentYear, currentMonth, currentDay);
+        populateYearAndMonthSelects();
+        updateCurrentTime();
+        setInterval(updateCurrentTime, 1000);
+    </script>
+</body>
+
+</html>
