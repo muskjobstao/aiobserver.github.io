@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI观察者网 - 探索人工智能工具与资源">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>AI观察者 - 科技革命指路人</title>
+    <style>
+        :root {
+            --item-width: 150px;
+            --item-height: 150px;
+            --border-radius: 15px;
+            --gap: 20px;
+            --fade-in-duration: 1s;
+            --nav-height: 60px;
+            --container-top-margin: 6vh;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: auto;
+        }
+
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        body::before {
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+        }
+
+        body::after {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
+            box-sizing: border-box;
+            z-index: 3;
+        }
+
+        .logo {
+            background-image: url('images/AI观察者.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 150px;
+            width: 150px;
+            display: block;
+            margin-top: 60px;
+        }
+
+        nav .logo {
+            background-image: url('images/AI观察者.png');
+            background-size: cover;
+            height: 150px;
+            width: 150px;
+            margin-top: 60px;
+            margin-left: 60px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 5px;
+        }
+
+        nav ul li {
+            font-size: 20px;
+            margin-top: 40px;
+            margin-left: 60px;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #10d874;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1;
+            opacity: 0;
+            margin-top: var(--container-top-margin);
+            animation: fadeIn var(--fade-in-duration) ease-in-out forwards;
+            will-change: opacity;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: var(--gap);
+            flex-wrap: wrap;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: var(--item-width);
+            height: var(--item-height);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            will-change: transform, box-shadow;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: var(--border-radius);
+        }
+
+        .item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 2;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .time-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 53.33%;
+        }
+
+        .date-display {
+            font-size: 124px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .weekday-display {
+            font-size: 126px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .time-display {
+            font-size: 256px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                height: 30px;
+                width: 90px;
+            }
+
+            nav ul li {
+                font-size: 16px;
+                margin-top: 0;
+                margin-left: 10px;
+            }
+
+            .item {
+                width: calc(50% - var(--gap));
+                height: var(--item-height);
+            }
+
+            .container {
+                padding-top: calc(var(--nav-height) + 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                height: 25px;
+                width: 80px;
+            }
+
+            nav ul li {
+                font-size: 14px;
+                margin-top: 0;
+                margin-left: 5px;
+            }
+
+            .item {
+                width: calc(100% - var(--gap));
+                height: var(--item-height);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html"><div class="logo"></div></a>
+        <ul>
+            <li><a href="#"><i class="fa-regular fa-eye"></i> AI</a></li>
+            <li><a href="#"><i class="fa-solid fa-hammer"></i> 编程</a></li>
+            <li><a href="#"><i class="fa-solid fa-images"></i> 效率</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="time-column">
+                <div class="date-display" id="dateDisplay" style="display: none;"></div>
+                <div class="weekday-display" id="weekdayDisplay" style="display: none;"></div>
+            </div>
+            <div class="time-column">
+                <div class="time-display" id="timeDisplay"></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 AI观察者网 版权所有</p>
+    </footer>
+    <script>
+        const timeDisplay = document.getElementById('timeDisplay');
+        const dateDisplay = document.getElementById('dateDisplay');
+        const weekdayDisplay = document.getElementById('weekdayDisplay');
+
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const weekDays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const dayOfWeek = '今天' + weekDays[now.getDay()];
+
+            timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+            dateDisplay.textContent = `${year}-${month}-${day}`;
+            weekdayDisplay.textContent = dayOfWeek;
+
+            requestAnimationFrame(updateTime);
+        }
+
+        updateTime();
+    </script>
+</body>
+
+</html>
