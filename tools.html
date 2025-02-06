@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -75,7 +76,7 @@
 
         }
 
-        nav .logo {
+        nav.logo {
 
             background-image: url('images/AI观察者.png');
             background-size: cover;
@@ -84,6 +85,15 @@
             margin-top: 60px;
             margin-left: 60px;
 
+        }
+
+        nav .logo {
+            background-image: url('images/AI观察者.png');
+            background-size: cover;
+            height: 150px;
+            width: 150px;
+            margin-top: 60px;
+            margin-left: 60px;
         }
 
         nav ul {
@@ -113,7 +123,7 @@
             color: #10d874;
         }
 
-        .container {
+       .container {
             display: flex;
             flex-direction: column;
             gap: var(--gap);
@@ -136,14 +146,14 @@
             }
         }
 
-        .row {
+       .row {
             display: flex;
             justify-content: center;
             gap: var(--gap);
             flex-wrap: wrap;
         }
 
-        .item {
+       .item {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -157,20 +167,20 @@
             overflow: hidden;
         }
 
-        .item:hover {
+       .item:hover {
             transform: translateY(-10px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .item img {
+       .item img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center;
+            object-fit: cover; /* 确保图片完全覆盖容器，可能会裁剪部分图片 */
+            object-position: center; /* 图片在容器中居中显示 */
             border-radius: var(--border-radius);
         }
 
-        .item a {
+       .item a {
             text-decoration: none;
             color: inherit;
             display: block;
@@ -207,43 +217,43 @@
         <!-- 第一行 -->
         <div class="row">
             <div class="item">
-                <a href="https://cloud.tencent.com/" target="_blank" tabindex="0" aria-label="访问佐糖">
-                    <img src="images/yun/tencentyun.png" alt="佐糖 AI 工具" loading="lazy" role="img">
+                <a href="https://cloud.tencent.com/" target="_blank" tabindex="0" aria-label="访问 腾讯云">
+                    <img src="images/yun/tencentyun.png" alt="腾讯云 AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://fontawesome.com/" target="_blank" tabindex="0" aria-label="访问幕布">
-                    <img src="images/yun/fontawesome.png" alt="幕布 AI 工具" loading="lazy" role="img">
+                <a href="https://fontawesome.com/" target="_blank" tabindex="0" aria-label="访问 fontawesome">
+                    <img src="images/yun/fontawesome.png" alt="fontawesome AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://raphael.app/zh" target="_blank" tabindex="0" aria-label="访问语雀">
-                    <img src="images/tools/Raphael AI.png" alt="语雀 AI 工具" loading="lazy" role="img">
+                <a href="https://raphael.app/zh" target="_blank" tabindex="0" aria-label="访问 Raphael">
+                    <img src="images/tools/Raphael AI.png" alt="Raphael AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://www.logosc.cn/favicon-generator?s=AI" target="_blank" tabindex="0" aria-label="访问 DeepSeek">
-                    <img src="images/tools/biaoxiaozhi.png" alt="DeepSeek AI 工具" loading="lazy" role="img">
+                <a href="https://www.logosc.cn/favicon-generator?s=AI" target="_blank" tabindex="0" aria-label="访问 标小智">
+                    <img src="images/tools/biaoxiaozhi.png" alt="标小智 AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://yiyan.baidu.com/" target="_blank" tabindex="0" aria-label="访问文心一言">
-                    <img src="images/文心一言.png" alt="文心一言 AI 工具" loading="lazy" role="img">
+                <a href="https://api.yyy001.com/" target="_blank" tabindex="0" aria-label="访问 山海">
+                    <img src="images/tools/shanhai.png" alt="山海 AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://www.canva.cn/" target="_blank" tabindex="0" aria-label="访问可画">
-                    <img src="images/可画.png" alt="可画 AI 工具" loading="lazy" role="img">
+                <a href="https://mp.weixin.qq.com/" target="_blank" tabindex="0" aria-label="访问 公众号">
+                    <img src="images/tools/gongzhonghao.png" alt="公众号 AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://tongyi.aliyun.com/wanxiang/" target="_blank" tabindex="0" aria-label="访问通义万相">
-                    <img src="images/通义万相.png" alt="通义万相 AI 工具" loading="lazy" role="img">
+                <a href="https://www.iconfont.cn/" target="_blank" tabindex="0" aria-label="访问 iconfont">
+                    <img src="images/tools/iconfont.png" alt="iconfont AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://taichu-web.ia.ac.cn/#/login" target="_blank" tabindex="0" aria-label="访问紫东太初">
-                    <img src="images/紫东太初.png" alt="紫东太初 AI 工具" loading="lazy" role="img">
+                <a href="https://www.canva.cn/" target="_blank" tabindex="0" aria-label="访问 可画">
+                    <img src="images/kehua.png" alt="可画 AI 工具" loading="lazy" role="img">
                 </a>
             </div>
         </div>
@@ -251,43 +261,43 @@
         <!-- 第二行 -->
         <div class="row">
             <div class="item">
-                <a href="https://yige.baidu.com/" target="_blank" tabindex="0" aria-label="访问文心">
-                    <img src="images/文心.png" alt="文心 AI 工具" loading="lazy" role="img">
+                <a href="https://ziyuan.baidu.com/" target="_blank" tabindex="0" aria-label="访问 百度搜索联盟">
+                    <img src="images/tools/baiduserch.png" alt="百度搜索联盟 AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://jimeng.jianying.com/ai-tool/home" target="_blank" tabindex="0" aria-label="访问即梦">
-                    <img src="images/即梦.png" alt="即梦 AI 工具" loading="lazy" role="img">
+                <a href="https://jimeng.jianying.com/ai-tool/home" target="_blank" tabindex="0" aria-label="访问GoogleNotebookLM">
+                    <img src="images/tools/GoogleNotebookLM.png" alt="GoogleNotebookLM AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://yuanbao.tencent.com/" target="_blank" tabindex="0" aria-label="访问混元元宝">
-                    <img src="images/混元元宝.png" alt="混元元宝 AI 工具" loading="lazy" role="img">
+                <a href="https://pixabay.com/" target="_blank" tabindex="0" aria-label="访问 pixabay">
+                    <img src="images/tools/pixabay.png" alt="pixabay AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://hailuoai.com/" target="_blank" tabindex="0" aria-label="访问海螺AI">
-                    <img src="images/海螺AI.png" alt="海螺AI 工具" loading="lazy" role="img">
+                <a href="https://wallhaven.cc/" target="_blank" tabindex="0" aria-label="访问 wallhaven">
+                    <img src="images/tools/wallhaven.png" alt="wallhaven AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://yuewen.cn/" target="_blank" tabindex="0" aria-label="访问跃问">
-                    <img src="images/跃问.png" alt="跃问 AI 工具" loading="lazy" role="img">
+                <a href="https://www.reshot.com/" target="_blank" tabindex="0" aria-label="访问 reshot">
+                    <img src="images/tools/reshot.png" alt="reshot AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://kimi.moonshot.cn/" target="_blank" tabindex="0" aria-label="访问 Kimi">
-                    <img src="images/kimi - 白.png" alt="Kimi AI 工具" loading="lazy" role="img">
+                <a href="https://huaban.com/" target="_blank" tabindex="0" aria-label="访问 花瓣">
+                    <img src="images/tools/huaban.png" alt="花瓣 AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://www.tiangong.cn/" target="_blank" tabindex="0" aria-label="访问天工AI">
-                    <img src="images/天工AI.png" alt="天工AI 工具" loading="lazy" role="img">
+                <a href="https://www.uisdc.com/" target="_blank" tabindex="0" aria-label="访问 优设">
+                    <img src="images/tools/youshe.png" alt="优设 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://ying.baichuan-ai.com/chat?from=home" target="_blank" tabindex="0" aria-label="访问百川智能">
-                    <img src="images/百川智能.png" alt="百川智能 AI 工具" loading="lazy" role="img">
+                <a href="https://www.zcool.com.cn/" target="_blank" tabindex="0" aria-label="访问 站酷">
+                    <img src="images/tools/zhanku.png" alt="站酷 AI 工具" loading="lazy" role="img">
                 </a>
             </div>
         </div>
@@ -295,28 +305,28 @@
         <!-- 第三行 -->
         <div class="row">
             <div class="item">
-                <a href="https://klingai.kuaishou.com/" target="_blank" tabindex="0" aria-label="访问可灵AI">
-                    <img src="images/可灵AI.png" alt="可灵AI 工具" loading="lazy" role="img">
+                <a href="https://www.toutiao.com/" target="_blank" tabindex="0" aria-label="访问 今日头条">
+                    <img src="images/tools/toutiao.png" alt="今日头条 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://tongyi.aliyun.com/" target="_blank" tabindex="0" aria-label="访问千问">
-                    <img src="images/千问.png" alt="千问 AI 工具" loading="lazy" role="img">
+                <a href="https://www.google.com" target="_blank" tabindex="0" aria-label="访问 Google">
+                    <img src="images/tools/google.png" alt="Google AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://www.doubao.com/" target="_blank" tabindex="0" aria-label="访问豆包">
-                    <img src="images/豆包.png" alt="豆包 AI 工具" loading="lazy" role="img">
+                <a href="https://www.bing.com/" target="_blank" tabindex="0" aria-label="访问 必应">
+                    <img src="images/tools/biying.png" alt="必应 AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://platform.lingyiwanwu.com/chat" target="_blank" tabindex="0" aria-label="访问零一万物">
-                    <img src="images/零一万物.png" alt="零一万物 AI 工具" loading="lazy" role="img">
+                <a href="https://www.douyin.com/" target="_blank" tabindex="0" aria-label="访问 抖音">
+                    <img src="images/tools/douyin.png" alt="抖音 AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
-                <a href="https://chatglm.cn/" target="_blank" tabindex="0" aria-label="访问智普清言">
-                    <img src="images/智普清言.png" alt="智普清言 AI 工具" loading="lazy" role="img">
+                <a href="https://www.bilibili.com/" target="_blank" tabindex="0" aria-label="访问 bili">
+                    <img src="images/tools/bili.png" alt="bili AI 工具" loading="lazy" role="img">
                 </a>
             </div>
             <div class="item">
